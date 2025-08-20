@@ -1,0 +1,129 @@
+@use "../base/setting";
+
+/* VARIABLES (opcional, pero buena práctica) */
+$primary-color: #fff;
+$secondary-color: #474747;
+$link-color: #555;
+$link-hover-color: #007bff;
+
+/* HEADER GENERAL */
+.header {
+  background-color: setting.$delftblue;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  width: 100%; // Esto asegura que ocupe todo el ancho
+}
+
+/* CONTENEDOR (para centrar el contenido y dar margen) */
+.container {
+  max-width: 1200px;
+  margin: 0;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+
+  .logo-finanzapp {
+   width: 200px;
+   height: auto
+  }
+}
+
+/* MENÚ DE NAVEGACIÓN (MOBILE) */
+.nav-links {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Oculto por defecto */
+  width: 70%;
+  height: 100vh;
+  background-color: $secondary-color;
+  transition: right 0.3s ease-in-out;
+  padding-top: 5rem;
+  z-index: 1000;
+
+  &.open {
+    right: 0; /* Visible cuando está abierto */
+  }
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.nav-item {
+  margin: 1rem 0;
+}
+
+.nav-link {
+  color: setting.$colorfont;
+  text-decoration: none;
+  font-size: 1.2rem;
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+/* BOTÓN DE HAMBURGUESA */
+.hamburger-menu {
+  display: flex; /* Visible en mobile */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001; /* Asegura que esté por encima del menú */
+
+  .hamburger-bar {
+    width: 100%;
+    height: 3px;
+    background-color: setting.$colorfont;
+    transition: all 0.3s ease;
+  }
+}
+
+/* MEDIA QUERY PARA TABLETS Y DESKTOPS */
+@media (min-width: 768px) {
+  /* Ocultar el botón de hamburguesa en pantallas grandes */
+  .hamburger-menu {
+    display: none;
+  }
+
+  /* El menú de navegación se muestra de forma horizontal */
+  .nav-links {
+    position: static; /* Volver a la posición normal */
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    padding-top: 0;
+  }
+
+  .nav-list {
+    flex-direction: row;
+  }
+
+  .nav-item {
+    margin: 0 1rem;
+  }
+
+  .nav-link {
+    color: $link-color;
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+}

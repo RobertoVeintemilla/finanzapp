@@ -1,0 +1,111 @@
+.header {
+  background-color: #474747;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 20px;
+  height: 60px;
+}
+  
+
+.logo {
+    display: flex;
+    align-items: center;
+
+  .logo-finanzapp {
+    height: 3em;
+    width: auto; 
+  }
+}
+
+  .hamburger-menu{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1002;
+
+    .hamburger-bar {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 5px 0;
+      transition: 0.4s
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #474747;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-100%);
+
+    &.open {
+      transform: translateY(0)
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      padding: 15px 0px;
+      border-bottom: 1px solid green;
+      transition: background-color 0.3s ease;
+    }
+
+    &:hover {
+      background-color: darken(green, 5%)
+    }
+
+    &:last-child {
+      border-bottom: none
+    }
+  }
+
+  
+  
+
+
+
+@media (min-width: 769px) {
+  .header {
+    height: auto;
+    padding: 15px 40px
+  }
+
+  .hamburger-menu {
+    display: none;
+  }
+
+  .nav-links {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    background-color: transparent;
+    box-shadow: none;
+    transform: none
+  }
+
+  .nav-links a {
+    margin: 0 0 0 25px;
+    padding: 0;
+    border-bottom: none;
+
+    &:hover {
+      color: lightgreen;
+      background-color: transparent
+    }
+  }
+}

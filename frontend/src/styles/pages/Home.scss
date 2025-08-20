@@ -1,0 +1,30 @@
+@use '../base/setting';
+
+.section-home {
+  padding: 1rem;
+  background-color: setting.$cambridge;
+  height: 590px;
+  
+
+  .portada {  display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 2em;
+
+    h1 {
+      font-size: setting.$title;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: setting.$subtitle
+    }
+
+    padding {
+      font-size: 1em;
+    }
+  }
+
+  
+}

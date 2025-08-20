@@ -1,0 +1,15 @@
+@use "./setting";
+@use "./mixin";
+
+* {
+  @include mixin.reset-pm();
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  list-style: none;
+  margin: 0 auto;
+}
+
+body {
+  background-color: setting.$eggshell;
+  display: flex;
+}
